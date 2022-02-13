@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1>What your learning</h1>
+        
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -16,6 +17,7 @@
                     <th>Resources</th>
                 </tr>
             </thead>
+            
             <tbody>
                 <?php
                 // connect
@@ -39,6 +41,7 @@
                 ?>
             </tbody>
         </table>
+            </div>
         <br>
             <h2>Randomly pick a project to work on (AND COMPLETE)</h2>
             <!--Button to activate above random project code-->
@@ -76,9 +79,7 @@
                         foreach ($randProjectLinks as $projectLink){
                             echo '<tr>
                             <td><a href='.'"' . $projectLink['link'] .'">'.$projectLink['link'].'</a><td>';
-                            // echo "<br>";
                             echo '</tr>';
-
                         }
                         echo 
                         '</tbody>

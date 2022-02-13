@@ -7,6 +7,15 @@
     <body>
         <?php
         $project  = $_POST['project'];
+        $valid = true;
+
+        if(empty($project)){
+            echo "Cannot input an empty project to do";
+            $valid = false;
+        }
+
+
+        if($valid == true){
         require 'db.php';
         $sql = "INSERT INTO projects (project) VALUES (:project)";
 
@@ -18,6 +27,7 @@
         $db = null;
  
         echo "projects saved";
+        }
         ?>
     </body>
 </html>

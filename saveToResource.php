@@ -9,10 +9,29 @@
         $link = ($_POST['link']);                                                                                                                                                                                                                                                                                                                               
         $hobbyId = $_POST['hobbyId'];
         $projectId = $_POST['projectId'];
+        $valid = true;
+        // input validation
+        if (empty($link)) {
+            echo "Name is required<br />";
+            $ok = false;
+        }
+        else {
+            if (!str_contains($link,'http')) {
+                echo "The resource must contain an http to be a link";
+                $ok = false;
+            }
+        }
+
+        if (empty($projectId)) {
+            echo "A project associated is required<br />";
+            $ok = false;
+        }
         
-
-        //Validation
-
+        if (empty($hobbyId)) {
+            echo "A hobby associated is required<br />";
+            $ok = false;
+        }
+        if($valid == true){
         require 'db.php';
         $sql = "INSERT INTO resources (link, hobbyId, projectId) VALUES (:link, :hobbyId, :projectId)";
         
@@ -27,6 +46,7 @@
         $db = null;
 
         echo "Hobby Saved";
+        }
         ?>
     </body>
 </html>

@@ -7,6 +7,15 @@
     <body>
         <?php
         $toLearn  = $_POST['toLearn'];
+        $valid = true;
+
+        if(empty($toLearn)){
+            echo "Cannot input an empty subject to learn";
+            $valid = false;
+        }
+
+
+        if($valid == true){
         require 'db.php';
         $sql = "INSERT INTO hobbies (hobby) VALUES (:toLearn)";
 
@@ -18,6 +27,7 @@
         $db = null;
  
         echo "Hobby Saved";
+        }
         ?>
     </body>
 </html>
