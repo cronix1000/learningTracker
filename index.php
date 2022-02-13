@@ -5,6 +5,7 @@
         <title>Show what your learning</title>
         <!--Bootstrap-->
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <h1>What your learning</h1>
@@ -53,13 +54,48 @@
                     $randProject = $cmd->fetchAll();
                     foreach ($randProject as $project) {
                         echo $project['projects'];
+                        $projectId =  $project['project_id'];
+                        global $projectId;
                     }
                     $db = null;
                 }
             ?>
+             
+            <!--Button to activate above random project code-->
             <form method="post">
                 <input type="submit" name="button1"
                 class="button" value="button1" />
+            <!---->
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Hobby</th>
+                    <th>Resources</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // connect
+                require 'db.php';
+
+                // set up & run query
+                $sql = "SELECT hobbies.hobby as 'hobby',resources.link FROM hobbies INNER JOIN resources ON hobbies.hobbyId = resources.hobbyId WHERE projectId = $projectId";
+                $cmd = $db->prepare($sql);
+                $cmd->execute();
+                $randHobbies = $cmd->fetchAll();
+
+                // loop through results and display inside table cells
+                foreach ($randHobbies as $hobby) {
+                    echo '<tr>
+                        <td>' . $hobby['hobby'] . '</td>
+                        <td><a href='.'"' . $hobby['link'] .'">'.$hobby['link'].'</a></td>
+                        </tr>';
+                }
+                
+                // disconnect
+                ?>
+            </tbody>
+        </table>
             
     </body>
 </html>

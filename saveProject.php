@@ -8,7 +8,7 @@
         <?php
         $project  = $_POST['project'];
         require 'db.php';
-        $sql = "INSERT INTO projects (projects) VALUES (:project)";
+        $sql = "INSERT INTO projects (project) VALUES (:project)";
 
         $cmd = $db->prepare($sql);
         $cmd->bindParam(':project', $project, PDO::PARAM_STR, 100);
