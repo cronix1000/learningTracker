@@ -9,12 +9,13 @@
         $toLearn  = $_POST['toLearn'];
         $valid = true;
 
+        //Check if the toLearn field is empty 
         if(empty($toLearn)){
             echo "Cannot input an empty subject to learn";
             $valid = false;
         }
 
-
+        //If not empty parse data into the database
         if($valid == true){
         require 'db.php';
         $sql = "INSERT INTO hobbies (hobby) VALUES (:toLearn)";

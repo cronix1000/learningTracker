@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
-        <title>Saving what you want to learn</title>
+        <title>Saving a link</title>
     </head>
     <body>
         <?php
@@ -10,11 +10,13 @@
         $hobbyId = $_POST['hobbyId'];
         $projectId = $_POST['projectId'];
         $valid = true;
-        // input validation
+
+        //Check if the resource field is empty 
         if (empty($link)) {
             echo "Name is required<br />";
             $ok = false;
         }
+        //Check if the resource field has a http inside of it 
         else {
             if (!str_contains($link,'http')) {
                 echo "The resource must contain an http to be a link";
