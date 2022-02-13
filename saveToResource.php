@@ -39,7 +39,7 @@
         
 
         $cmd = $db->prepare($sql);
-        $cmd->bindParam(':link', $link, PDO::PARAM_STR, 100);
+        $cmd->bindParam(':link', $link, PDO::PARAM_STR, 200);
         $cmd->bindParam(':hobbyId', $hobbyId, PDO::PARAM_INT);
         $cmd->bindParam(':projectId', $projectId, PDO::PARAM_INT);
 
@@ -47,7 +47,7 @@
 
         $db = null;
 
-        echo "Hobby Saved";
+        echo "Resource Saved";
         }
         ?>
     </body>
