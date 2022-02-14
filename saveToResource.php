@@ -22,13 +22,13 @@
                 echo "The resource must contain an http to be a link";
                 $ok = false;
             }
-        }
-
+        }   
+        //Check if the projectId field is empty 
         if (empty($projectId)) {
             echo "A project associated is required<br />";
             $ok = false;
         }
-        
+        //Check if the hobbyId field is empty 
         if (empty($hobbyId)) {
             echo "A hobby associated is required<br />";
             $ok = false;
