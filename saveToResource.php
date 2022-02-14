@@ -14,24 +14,24 @@
         //Check if the resource field is empty 
         if (empty($link)) {
             echo "link is required<br />";
-            $ok = false;
+            $valid = false;
         }
         //Check if the resource field has a http inside of it 
-        else {
-            if ($link!=(str_contains($link,'http'))) {
+        else{
+            if($link!=(str_contains($link,'http'))) {
                 echo "The resource must contain an http to be a link";
-                $ok = false;
+                $valid = false;
             }
-        }   
+        }
         //Check if the projectId field is empty 
         if (empty($projectId)) {
             echo "A project associated is required<br />";
-            $ok = false;
+            $valid = false;
         }
         //Check if the hobbyId field is empty 
         if (empty($hobbyId)) {
             echo "A hobby associated is required<br />";
-            $ok = false;
+            $valid = false;
         }
         if($valid == true){
         require 'db.php';
