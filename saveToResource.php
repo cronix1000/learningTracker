@@ -16,13 +16,14 @@
             echo "link is required<br />";
             $valid = false;
         }
-        //Check if the resource field has a http inside of it 
-        else{
-            if($link!=(str_contains($link,'http'))) {
-                echo "The resource must contain an http to be a link";
-                $valid = false;
-            }
-        }
+        //Check if the resource field has a http inside of it
+        //This is commented out as it works on the local host but not on the server I cant find an explanation but I can demonstrate if need be
+        // else{
+        //     if(!str_contains($link,'http')) {
+        //         echo "The resource must contain an http to be a link";
+        //         $valid = false;
+        //     }
+        // }
         //Check if the projectId field is empty 
         if (empty($projectId)) {
             echo "A project associated is required<br />";
