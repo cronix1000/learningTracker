@@ -18,7 +18,7 @@
         }
         //Check if the resource field has a http inside of it 
         else {
-            if (!str_contains($link,'http')) {
+            if ($link!=(str_contains($link,'http'))) {
                 echo "The resource must contain an http to be a link";
                 $ok = false;
             }
