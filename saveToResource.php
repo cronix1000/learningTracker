@@ -13,7 +13,7 @@
 
         //Check if the resource field is empty 
         if (empty($link)) {
-            echo "Name is required<br />";
+            echo "link is required<br />";
             $ok = false;
         }
         //Check if the resource field has a http inside of it 
